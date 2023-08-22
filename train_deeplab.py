@@ -27,7 +27,7 @@ print(model.summary())
 #model.load_weights(join("ckpt/saved/", "***.hdf5"))
 
 batch_size = 2
-num_epochs = 50
+num_epochs = 20
 
 # setup data generator
 data_gen_args = dict(rotation_range=0.2,
@@ -55,8 +55,8 @@ train_gen = trainDataGenerator(batch_size, # batch_size
                               target_size = (im_res_[1], im_res_[0]))
 
 ## fit model
-model.fit_generator(train_gen, 
-                    steps_per_epoch = 4000,
-                    epochs = num_epochs,
-                    callbacks = [model_checkpoint])
+model.fit(train_gen, 
+          steps_per_epoch = 2,
+          epochs = num_epochs,
+          callbacks = [model_checkpoint])
 

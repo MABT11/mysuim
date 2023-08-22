@@ -58,7 +58,7 @@ train_gen = trainDataGenerator(batch_size, # batch_size
 
 ## fit model
 model.fit(train_gen, 
-          steps_per_epoch = 2,#000,
+          steps_per_epoch = 2,
           epochs = num_epochs,
           callbacks = [model_checkpoint])
 

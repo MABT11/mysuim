@@ -1,7 +1,8 @@
 """
-# Test script for the UNet
+Test against the checkpoints
+# Test script for the SUIM-Net
     # for 5 object categories: HD, FV, RO, RI, WR 
-# See https://arxiv.org/pdf/2004.01241.pdf  
+# Paper: https://arxiv.org/pdf/2004.01241.pdf  
 """
 from __future__ import print_function, division
 import os
@@ -10,15 +11,14 @@ import numpy as np
 from PIL import Image
 from os.path import join, exists
 # local libs
-from models.unet import UNet0
+from models.suim_net import SUIM_Net
 from utils.data_utils import getPaths
 
 ## experiment directories
-#test_dir = "/mnt/data1/ImageSeg/suim/TEST/images/"
 test_dir = "data/test/images/"
 
 ## sample and ckpt dir
-samples_dir = "data/test/outputUnet/"
+samples_dir = "output/VGG16/"
 RO_dir = samples_dir + "RO/"
 FB_dir = samples_dir + "FV/"
 WR_dir = samples_dir + "WR/"
@@ -32,9 +32,15 @@ if not exists(HD_dir): os.makedirs(HD_dir)
 if not exists(RI_dir): os.makedirs(RI_dir)
 
 ## input/output shapes
-im_res_ = (320, 240, 3) 
-ckpt_name = "unet_rgb5.hdf5"
-model = UNet0(input_size=(im_res_[1], im_res_[0], 3), no_of_class=5)
+base_ = 'VGG' # or 'RSB'
+if base_=='RSB':
+    im_res_ = (320, 240, 3) 
+    ckpt_name = "suimnet_rsb5.hdf5"
+else: 
+    im_res_ = (320, 256, 3)
+    ckpt_name = "suimnet_vgg5.hdf5"
+suimnet = SUIM_Net(base=base_, im_res=im_res_, n_classes=5)
+model = suimnet.model
 print (model.summary())
 model.load_weights(join("ckpt/", ckpt_name))
 

@@ -1,7 +1,8 @@
 """
 # Test script for the DeepLab V3
     # for 5 object categories: HD, FV, RO, RI, WR 
-# See https://arxiv.org/pdf/2004.01241.pdf  
+# See https://arxiv.org/pdf/2004.01241.pdf 
+NEEDS TO BE UPDATED
 """
 from __future__ import print_function, division
 import os
@@ -14,11 +15,10 @@ from models.deeplabv3 import Deeplabv3
 from utils.data_utils import getPaths
 
 ## experiment directories
-#test_dir = "/mnt/data1/ImageSeg/suim/TEST/images/"
 test_dir = "data/test/images/"
 
 ## sample and ckpt dir
-samples_dir = "data/test/outputDeeplab/"
+samples_dir = "output/Deeplab/"
 RO_dir = samples_dir + "RO/"
 FB_dir = samples_dir + "FB/"
 WR_dir = samples_dir + "WR/"
