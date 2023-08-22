@@ -10,11 +10,13 @@ import numpy as np
 from PIL import Image
 from os.path import join, exists
 # local libs
-from models.fcn import fcn_8, fcn_8_vgg
+
+
+from models.fcn import  fcn_8, fcn_8_vgg
+# from fcn import fcn_8, fcn_8_vgg
 from utils.data_utils import getPaths
 
 ## experiment directories
-# test_dir = "/mnt/data1/ImageSeg/suim/TEST/images/"
 test_dir = "data/test/images/"
 
 ## sample and ckpt dir
