@@ -28,7 +28,7 @@ print (model.summary())
 
 
 batch_size = 2
-num_epochs = 20
+num_epochs = 3
 # setup data generator
 data_gen_args = dict(rotation_range=0.2,
                     width_shift_range=0.05,
@@ -55,11 +55,6 @@ train_gen = trainDataGenerator(batch_size, # batch_size
                               target_size = (im_res_[1], im_res_[0]))
 
 ## fit model
-# model.fit_generator(train_gen, 
-#                     steps_per_epoch = 5000,
-#                     epochs = num_epochs,
-#                     callbacks = [model_checkpoint])
-
 model.fit(train_gen, 
           steps_per_epoch = 2,#000,
           epochs = num_epochs,

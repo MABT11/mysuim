@@ -1,4 +1,5 @@
 """
+Test against the checkpoints
 # Test script for the FCN8 (VGG)
     # for 5 object categories: HD, FV, RO, RI, WR 
 # See https://arxiv.org/pdf/2004.01241.pdf  
@@ -10,17 +11,14 @@ import numpy as np
 from PIL import Image
 from os.path import join, exists
 # local libs
-
-
-from models.fcn import  fcn_8, fcn_8_vgg
-# from fcn import fcn_8, fcn_8_vgg
+from models.fcn import fcn_8, fcn_8_vgg
 from utils.data_utils import getPaths
 
 ## experiment directories
 test_dir = "data/test/images/"
 
 ## sample and ckpt dir
-samples_dir = "data/test/outputFCN8/"
+samples_dir = "output/FCN8/"
 RO_dir = samples_dir + "RO/"
 FB_dir = samples_dir + "FB/"
 WR_dir = samples_dir + "WR/"

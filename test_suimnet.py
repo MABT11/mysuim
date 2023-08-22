@@ -1,4 +1,5 @@
 """
+Test against the checkpoints
 # Test script for the SUIM-Net
     # for 5 object categories: HD, FV, RO, RI, WR 
 # Paper: https://arxiv.org/pdf/2004.01241.pdf  
@@ -14,11 +15,10 @@ from models.suim_net import SUIM_Net
 from utils.data_utils import getPaths
 
 ## experiment directories
-#test_dir = "/mnt/data1/ImageSeg/suim/TEST/images/"
 test_dir = "data/test/images/"
 
 ## sample and ckpt dir
-samples_dir = "data/test/outputVGG16/"
+samples_dir = "output/VGG16/"
 RO_dir = samples_dir + "RO/"
 FB_dir = samples_dir + "FV/"
 WR_dir = samples_dir + "WR/"
