@@ -1,6 +1,7 @@
 """
 Thanks to https://github.com/fperazzi/davis
 """
+from math import floor
 import numpy as np
 from skimage.morphology import binary_dilation,disk
 
@@ -66,7 +67,7 @@ def seg2bmap(seg,width=None,height=None):
     Returns:
         bmap (ndarray):	Binary boundary map.
     """
-    seg = seg.astype(np.bool)
+    seg = seg.astype(bool)
     seg[seg>0] = 1
 
     assert np.atleast_3d(seg).shape[2] == 1
